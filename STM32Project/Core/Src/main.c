@@ -192,64 +192,28 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  int count = 0;
+  int second = 0;
+  int minute = 10;
+  int hour = 5;
   while (1)
   {
-	switch(count){
-	case 0:
-		HAL_GPIO_WritePin(GPIOA, CLK_12_Pin, GPIO_PIN_SET);
-		HAL_GPIO_WritePin(GPIOA, CLK_11_Pin, GPIO_PIN_RESET);
-		break;
-	case 1:
-		HAL_GPIO_WritePin(GPIOA, CLK_1_Pin, GPIO_PIN_SET);
-		HAL_GPIO_WritePin(GPIOA, CLK_12_Pin, GPIO_PIN_RESET);
-		break;
-	case 2:
-		HAL_GPIO_WritePin(GPIOA, CLK_2_Pin, GPIO_PIN_SET);
-		HAL_GPIO_WritePin(GPIOA, CLK_1_Pin, GPIO_PIN_RESET);
-	break;
-	case 3:
-		HAL_GPIO_WritePin(GPIOA, CLK_3_Pin, GPIO_PIN_SET);
-		HAL_GPIO_WritePin(GPIOA, CLK_2_Pin, GPIO_PIN_RESET);
-		break;
-	case 4:
-		HAL_GPIO_WritePin(GPIOA, CLK_4_Pin, GPIO_PIN_SET);
-		HAL_GPIO_WritePin(GPIOA, CLK_3_Pin, GPIO_PIN_RESET);
-		break;
-	case 5:
-		HAL_GPIO_WritePin(GPIOA, CLK_5_Pin, GPIO_PIN_SET);
-		HAL_GPIO_WritePin(GPIOA, CLK_4_Pin, GPIO_PIN_RESET);
-		break;
-	case 6:
-		HAL_GPIO_WritePin(GPIOA, CLK_6_Pin, GPIO_PIN_SET);
-		HAL_GPIO_WritePin(GPIOA, CLK_5_Pin, GPIO_PIN_RESET);
-		break;
-	case 7:
-		HAL_GPIO_WritePin(GPIOA, CLK_7_Pin, GPIO_PIN_SET);
-		HAL_GPIO_WritePin(GPIOA, CLK_6_Pin, GPIO_PIN_RESET);
-		break;
-	case 8:
-		HAL_GPIO_WritePin(GPIOA, CLK_8_Pin, GPIO_PIN_SET);
-		HAL_GPIO_WritePin(GPIOA, CLK_7_Pin, GPIO_PIN_RESET);
-		break;
-	case 9:
-		HAL_GPIO_WritePin(GPIOA, CLK_9_Pin, GPIO_PIN_SET);
-		HAL_GPIO_WritePin(GPIOA, CLK_8_Pin, GPIO_PIN_RESET);
-		break;
-	case 10:
-		HAL_GPIO_WritePin(GPIOA, CLK_10_Pin, GPIO_PIN_SET);
-		HAL_GPIO_WritePin(GPIOA, CLK_9_Pin, GPIO_PIN_RESET);
-		break;
-	case 11:
-		HAL_GPIO_WritePin(GPIOA, CLK_11_Pin, GPIO_PIN_SET);
-		HAL_GPIO_WritePin(GPIOA, CLK_10_Pin, GPIO_PIN_RESET);
-		break;
-	default:
-		break;
+	clearAllClock();
+	if(second == 60) {
+		minute++;
+		second = 0;
 	}
-	count++;
-	if(count == 12) count = 0;
-	HAL_Delay(1000);
+	if(minute == 60){
+		hour++;
+		minute = 0;
+		if(hour == 13) hour = 1;
+	}
+	second++;
+
+	setNumberOnClock(second / 5);
+	setNumberOnClock(minute / 5);
+	setNumberOnClock(hour);
+
+	HAL_Delay(200);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
