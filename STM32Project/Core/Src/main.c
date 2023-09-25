@@ -91,8 +91,64 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  int count = 0;
   while (1)
   {
+	switch(count){
+	case 0:
+		HAL_GPIO_WritePin(GPIOA, CLK_12_Pin, GPIO_PIN_SET);
+		HAL_GPIO_WritePin(GPIOA, CLK_11_Pin, GPIO_PIN_RESET);
+		break;
+	case 1:
+		HAL_GPIO_WritePin(GPIOA, CLK_1_Pin, GPIO_PIN_SET);
+		HAL_GPIO_WritePin(GPIOA, CLK_12_Pin, GPIO_PIN_RESET);
+		break;
+	case 2:
+		HAL_GPIO_WritePin(GPIOA, CLK_2_Pin, GPIO_PIN_SET);
+		HAL_GPIO_WritePin(GPIOA, CLK_1_Pin, GPIO_PIN_RESET);
+	break;
+	case 3:
+		HAL_GPIO_WritePin(GPIOA, CLK_3_Pin, GPIO_PIN_SET);
+		HAL_GPIO_WritePin(GPIOA, CLK_2_Pin, GPIO_PIN_RESET);
+		break;
+	case 4:
+		HAL_GPIO_WritePin(GPIOA, CLK_4_Pin, GPIO_PIN_SET);
+		HAL_GPIO_WritePin(GPIOA, CLK_3_Pin, GPIO_PIN_RESET);
+		break;
+	case 5:
+		HAL_GPIO_WritePin(GPIOA, CLK_5_Pin, GPIO_PIN_SET);
+		HAL_GPIO_WritePin(GPIOA, CLK_4_Pin, GPIO_PIN_RESET);
+		break;
+	case 6:
+		HAL_GPIO_WritePin(GPIOA, CLK_6_Pin, GPIO_PIN_SET);
+		HAL_GPIO_WritePin(GPIOA, CLK_5_Pin, GPIO_PIN_RESET);
+		break;
+	case 7:
+		HAL_GPIO_WritePin(GPIOA, CLK_7_Pin, GPIO_PIN_SET);
+		HAL_GPIO_WritePin(GPIOA, CLK_6_Pin, GPIO_PIN_RESET);
+		break;
+	case 8:
+		HAL_GPIO_WritePin(GPIOA, CLK_8_Pin, GPIO_PIN_SET);
+		HAL_GPIO_WritePin(GPIOA, CLK_7_Pin, GPIO_PIN_RESET);
+		break;
+	case 9:
+		HAL_GPIO_WritePin(GPIOA, CLK_9_Pin, GPIO_PIN_SET);
+		HAL_GPIO_WritePin(GPIOA, CLK_8_Pin, GPIO_PIN_RESET);
+		break;
+	case 10:
+		HAL_GPIO_WritePin(GPIOA, CLK_10_Pin, GPIO_PIN_SET);
+		HAL_GPIO_WritePin(GPIOA, CLK_9_Pin, GPIO_PIN_RESET);
+		break;
+	case 11:
+		HAL_GPIO_WritePin(GPIOA, CLK_11_Pin, GPIO_PIN_SET);
+		HAL_GPIO_WritePin(GPIOA, CLK_10_Pin, GPIO_PIN_RESET);
+		break;
+	default:
+		break;
+	}
+	count++;
+	if(count == 12) count = 0;
+	HAL_Delay(1000);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -151,10 +207,16 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOA_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, LED_RED_Pin|LED_YELLOW_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, CLK_12_Pin|CLK_1_Pin|CLK_2_Pin|CLK_3_Pin
+                          |CLK_4_Pin|CLK_5_Pin|CLK_6_Pin|CLK_7_Pin
+                          |CLK_8_Pin|CLK_9_Pin|CLK_10_Pin|CLK_11_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pins : LED_RED_Pin LED_YELLOW_Pin */
-  GPIO_InitStruct.Pin = LED_RED_Pin|LED_YELLOW_Pin;
+  /*Configure GPIO pins : CLK_12_Pin CLK_1_Pin CLK_2_Pin CLK_3_Pin
+                           CLK_4_Pin CLK_5_Pin CLK_6_Pin CLK_7_Pin
+                           CLK_8_Pin CLK_9_Pin CLK_10_Pin CLK_11_Pin */
+  GPIO_InitStruct.Pin = CLK_12_Pin|CLK_1_Pin|CLK_2_Pin|CLK_3_Pin
+                          |CLK_4_Pin|CLK_5_Pin|CLK_6_Pin|CLK_7_Pin
+                          |CLK_8_Pin|CLK_9_Pin|CLK_10_Pin|CLK_11_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;

@@ -57,10 +57,30 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define LED_RED_Pin GPIO_PIN_5
-#define LED_RED_GPIO_Port GPIOA
-#define LED_YELLOW_Pin GPIO_PIN_6
-#define LED_YELLOW_GPIO_Port GPIOA
+#define CLK_12_Pin GPIO_PIN_4
+#define CLK_12_GPIO_Port GPIOA
+#define CLK_1_Pin GPIO_PIN_5
+#define CLK_1_GPIO_Port GPIOA
+#define CLK_2_Pin GPIO_PIN_6
+#define CLK_2_GPIO_Port GPIOA
+#define CLK_3_Pin GPIO_PIN_7
+#define CLK_3_GPIO_Port GPIOA
+#define CLK_4_Pin GPIO_PIN_8
+#define CLK_4_GPIO_Port GPIOA
+#define CLK_5_Pin GPIO_PIN_9
+#define CLK_5_GPIO_Port GPIOA
+#define CLK_6_Pin GPIO_PIN_10
+#define CLK_6_GPIO_Port GPIOA
+#define CLK_7_Pin GPIO_PIN_11
+#define CLK_7_GPIO_Port GPIOA
+#define CLK_8_Pin GPIO_PIN_12
+#define CLK_8_GPIO_Port GPIOA
+#define CLK_9_Pin GPIO_PIN_13
+#define CLK_9_GPIO_Port GPIOA
+#define CLK_10_Pin GPIO_PIN_14
+#define CLK_10_GPIO_Port GPIOA
+#define CLK_11_Pin GPIO_PIN_15
+#define CLK_11_GPIO_Port GPIOA
 
 /* USER CODE BEGIN Private defines */
 
