@@ -49,12 +49,25 @@
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 /* USER CODE BEGIN PFP */
-
+void clearAllClock(void);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
+void clearAllClock(){
+	HAL_GPIO_WritePin(GPIOA, CLK_12_Pin, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(GPIOA, CLK_1_Pin, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(GPIOA, CLK_2_Pin, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(GPIOA, CLK_3_Pin, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(GPIOA, CLK_4_Pin, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(GPIOA, CLK_5_Pin, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(GPIOA, CLK_6_Pin, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(GPIOA, CLK_7_Pin, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(GPIOA, CLK_8_Pin, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(GPIOA, CLK_9_Pin, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(GPIOA, CLK_10_Pin, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(GPIOA, CLK_11_Pin, GPIO_PIN_RESET);
+}
 /* USER CODE END 0 */
 
 /**
